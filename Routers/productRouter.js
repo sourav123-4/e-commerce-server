@@ -31,4 +31,21 @@ router.get("/addproducts",(req,res)=>{
     })
 })
 
+router.get("/addproducts/:category",(req,res)=>{
+    reactProduct.find({category:req.params.category}).then((result)=>{
+        console.log(result)
+        res.send(result)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+router.get("/addproducts/products/:id",(req,res)=>{
+    reactProduct.findById({_id:req.params.id}).then((result)=>{
+        console.log(result)
+        res.send(result)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 module.exports = router;
